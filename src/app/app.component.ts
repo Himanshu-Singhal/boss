@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'boss';
+  isAuthenticated: Boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -22,6 +23,7 @@ export class AppComponent {
   getAuthStatus(): void {
     this.authService.getIsAuthenticated()
     .subscribe(isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
       if (isAuthenticated) {
         this.router.navigate(['/home']);
       } else {
