@@ -1,4 +1,11 @@
 .header {
     width: 100%;
     background-color: #eeeeee;
+    .goals-nav {
+        display: flex;
+        div.nav-link {
+            width: 33.33%;
+            text-align: center;
+        }
+    }
 }
