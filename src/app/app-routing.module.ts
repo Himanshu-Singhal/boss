@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GoalsProgressComponent } from './goals-progress/goals-progress.component';
-import { GoalIdeasComponent } from './goal-ideas/goal-ideas.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SpendingComponent } from './spending/spending.component';
+import { GoalsComponent } from './goals/goals.component';
 
 const routes: Routes = [
   {
@@ -15,12 +14,8 @@ const routes: Routes = [
     component: SpendingComponent,
   },
   {
-    path: 'goals/progress',
-    component: GoalsProgressComponent,
-  },
-  {
-    path: 'goals/ideas',
-    component: GoalIdeasComponent,
+    path: 'goals',
+    component: GoalsComponent,
   },
   {
     path: '',
