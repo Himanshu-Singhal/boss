@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Transaction } from './transaction';
+import { NEWTRANSACTIONS } from './newTransactions';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,21 +42,32 @@ export class TransactionService {
     }
   };
 
-  transactionOne: Transaction = {
-    name: 'Coffee',
-    description: 'Spent on coffee: $',
-    amount: 298.7,
-    timestamp: '2017-11-27T09:10:00'
-  };
+  INITIAL_TRANSACTIONS: Transaction[] = [
+    {
+      name: 'Coffee',
+      description: 'Spent on coffee: $',
+      amount: 298.7,
+      timestamp: '2019-3-14T09:10:00'
+    },
+    {
+      name: 'Commute',
+      description: 'Spent on commute: $',
+      amount: 534.7,
+      timestamp: '2019-3-15T09:10:00'
+    }
+  ];
 
-  transactionTwo: Transaction = {
-    name: 'Commute',
-    description: 'Spent on commute: $',
-    amount: 534.7,
-    timestamp: '2017-3-27T09:10:00'
-  };
 
-  getTransactionData(): Transaction[] {
-    return [this.transactionOne , this.transactionTwo];
+  private transactions = new BehaviorSubject(this.INITIAL_TRANSACTIONS);
+
+  readonly transactions$ = this.transactions.asObservable();
+
+  fastForward(): void {
+    this.transactions.next([...this.transactions.getValue(), ...NEWTRANSACTIONS]);
+    console.log('fast forwarded');
+  }
+
+  getTransactionData(): Observable<Transaction[]> {
+    return this.transactions$;
   }
 }

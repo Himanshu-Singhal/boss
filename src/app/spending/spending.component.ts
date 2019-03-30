@@ -13,7 +13,10 @@ export class SpendingComponent implements OnInit {
   transactions: Transaction[];
 
   getTransactionData(): void {
-    this.transactions = this.transactionService.getTransactionData();
+    this.transactionService.getTransactionData()
+    .subscribe(transactions => {
+      this.transactions = transactions;
+    });
   }
 
   getMonth(inp): string {
