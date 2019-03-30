@@ -12,4 +12,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  notificationVisible: boolean = true;
+
+  hideNotification(): void {
+    this.notificationVisible = false;
+  }
 }
