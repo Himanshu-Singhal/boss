@@ -3,4 +3,9 @@
     bottom: 0;
     width: 100%;
     background-color: #eeeeee;
+    display: flex;
+    div.nav-link {
+        width: 20%;
+        text-align: center;
+    }
 }
