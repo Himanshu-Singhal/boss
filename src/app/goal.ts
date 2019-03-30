@@ -1,4 +1,5 @@
 export class Goal {
-    name: string
+    title: string
     description: string
+    last: number
 }
