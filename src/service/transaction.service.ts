@@ -117,6 +117,10 @@ export class TransactionService {
     }
   }
 
+  getTxnTypeByMonth(type, month): Transaction[]{
+    return this.getTransactionsByMonth(0, this.INITIAL_TRANSACTIONS);
+  }
+
   getLatestMonth(transactions): number {
     const sorted = _.orderBy(transactions, 'timestamp', 'desc');
     return new Date(sorted[0].timestamp).getUTCMonth();
