@@ -30,7 +30,55 @@ export class TransactionService {
       description: 'Spent on commute: $',
       amount: 534.7,
       timestamp: '2019-03-15T09:10:00Z'
-    }
+    },
+    {
+      name: 'Coffee',
+      description: 'Spent on coffee: $',
+      amount: 28.7,
+      timestamp: '2019-01-14T09:10:00Z'
+    },
+    {
+      name: 'Coffee',
+      description: 'Spent on coffee: $',
+      amount: 38.7,
+      timestamp: '2019-02-25T09:10:00Z'
+    },
+    {
+      name: 'Commute',
+      description: 'Spent on coffee: $',
+      amount: 93.7,
+      timestamp: '2019-01-19T09:10:00Z'
+    },
+    {
+      name: 'Coffee',
+      description: 'Spent on coffee: $',
+      amount: 82.7,
+      timestamp: '2019-01-14T09:10:00Z'
+    },
+    {
+      name: 'Coffee',
+      description: 'Spent on coffee: $',
+      amount: 7.7,
+      timestamp: '2019-02-14T09:10:00Z'
+    },
+    {
+      name: 'Coffee',
+      description: 'Spent on coffee: $',
+      amount: 17.7,
+      timestamp: '2019-01-04T09:10:00Z'
+    },
+    {
+      name: 'Commute',
+      description: 'Spent on commute: $',
+      amount: 34.7,
+      timestamp: '2019-01-15T09:10:00Z'
+    },
+    {
+      name: 'Dine',
+      description: 'Spent on dining out: $',
+      amount: 54.7,
+      timestamp: '2019-01-15T09:10:00Z'
+      }
   ];
 
   private transactions = new BehaviorSubject(this.INITIAL_TRANSACTIONS);
