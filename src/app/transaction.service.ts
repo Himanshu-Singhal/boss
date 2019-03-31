@@ -1,7 +1,9 @@
+import { formatDate } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { Transaction } from './transaction';
-import { NEWTRANSACTIONS } from './newTransactions';
+import * as _ from 'lodash';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { NEWTRANSACTIONS } from './newTransactions';
+import { Transaction } from './transaction';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +69,11 @@ export class TransactionService {
     }
   }
 
+  getDate(timestamp): string {
+    const newDate = new Date(Date.parse(timestamp));
+    return formatDate(newDate, 'MMMM dd, yyyy', 'en-US');
+  }
+
   fastForward(): void {
     this.transactions.next([...this.transactions.getValue(), ...NEWTRANSACTIONS]);
     console.log('fast forwarded');
@@ -74,5 +81,12 @@ export class TransactionService {
 
   getTransactionData(): Observable<Transaction[]> {
     return this.transactions$;
+  }
+
+  groupTransactions(transactions): { date: any; txns: Transaction[]; }[] {
+    const txns = _(transactions).orderBy('timestamp', 'desc').groupBy(txn => this.getDate(txn.timestamp))
+                .map((value, key) => ({date: formatDate(key, 'MMMM dd, yyyy', 'en-US'), txns: value}))
+                .value();
+    return txns;
   }
 }
