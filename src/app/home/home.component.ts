@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Goal } from '../goal';
+import { GoalsService } from '../goals.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor( private goalService: GoalsService ) { }
+  
+  goals: Goal[];
 
-  ngOnInit() {
+  getGoalsData(): void {
+    this.goals = this.goalService.getGoalsData();
   }
 
   notificationVisible: boolean = true;
 
   hideNotification(): void {
     this.notificationVisible = false;
+  }
+
+  ngOnInit() {
+    this.getGoalsData();
   }
 }
