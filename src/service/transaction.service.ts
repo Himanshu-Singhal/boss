@@ -2,8 +2,8 @@ import { formatDate } from '@angular/common';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { NEWTRANSACTIONS } from './newTransactions';
-import { Transaction } from './transaction';
+import { NEWTRANSACTIONS } from '../app/newTransactions';
+import { Transaction } from '../model/transaction';
 
 @Injectable({
   providedIn: 'root'
