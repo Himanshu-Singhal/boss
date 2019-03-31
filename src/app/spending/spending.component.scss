@@ -1,0 +1,39 @@
+.spending {
+    background-color: purple;
+    .title {
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+    }
+    mat-card {
+        margin: 10px;
+        padding: 0;
+        border-radius: 10px;
+    }
+    .spending-div:first {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .header {
+        background-color: #d3d3d3;
+        padding: 8px;
+        font-family: Heebo;
+        font-size: 12px;
+        font-weight: 500;
+        color: #626c7d;
+        &.header-first {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    }
+    .name {
+        font-family: Heebo;
+        font-size: 14px;
+    }
+    .description {
+        font-family: Heebo;
+        font-size: 14px;
+    }
+
+}

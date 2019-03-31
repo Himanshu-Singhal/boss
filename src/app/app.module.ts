@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { LearnComponent } from './learn/learn.component';
     AppRoutingModule,
     FormsModule,
     MatCardModule,
+    MatProgressBarModule,
     BrowserAnimationsModule
   ],
   providers: [],
