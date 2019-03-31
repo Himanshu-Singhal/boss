@@ -1,10 +1,27 @@
 <div class="spending">
   SPENDING
-  <div *ngFor="let monthlyTrans of transactions">
-    <div style="background-color: grey;">{{getMonth(monthlyTrans.timestamp)}}</div>
-    <div style="border: 1px solid black;">
-      <h1>{{monthlyTrans.name}}</h1>
-      <div>{{monthlyTrans.description}}{{monthlyTrans.amount}}</div>
+  <div *ngFor="let entry of grouped">
+    <div style="background-color: grey;">{{entry.date}}</div>
+    <div *ngFor="let txn of entry.txns">
+      <div style="border: 1px solid black;">
+        <h1>{{txn.name}}</h1>
+        <div>{{txn.description}}{{txn.amount}}</div>
+      </div>
     </div>
   </div>
+
+  <!-- uncomment for card view -->
+  <!-- <mat-card *ngFor="let entry of grouped">
+    <mat-card-header>
+      <mat-card-title>{{entry.date}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let txn of entry.txns">
+        <div style="border: 1px solid black;">
+          <h1>{{txn.name}}</h1>
+          <div>{{txn.description}}{{txn.amount}}</div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card> -->
 </div>

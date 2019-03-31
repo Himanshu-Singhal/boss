@@ -4,19 +4,19 @@ export const NEWTRANSACTIONS: Transaction[] = [
     {
         name: 'Coffee',
         description: 'Spent on coffee: $',
-        amount: 534.7,
-        timestamp: '2019-0-22T09:10:00'
+        amount: 123,
+        timestamp: '2019-01-22T09:10:00Z'
     },
     {
         name: 'Commute',
         description: 'Spent on commute: $',
-        amount: 534.7,
-        timestamp: '2019-0-23T09:10:00'
+        amount: 456,
+        timestamp: '2019-02-23T09:10:00Z'
     },
     {
         name: 'Commute',
         description: 'Spent on commute: $',
-        amount: 534.7,
-        timestamp: '2019-2-24T09:10:00'
+        amount: 789,
+        timestamp: '2019-02-23T09:10:00Z'
     },
 ];

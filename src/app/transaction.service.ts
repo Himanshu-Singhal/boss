@@ -10,9 +10,34 @@ export class TransactionService {
 
   constructor() { }
 
+  INITIAL_TRANSACTIONS: Transaction[] = [
+    {
+      name: 'Coffee',
+      description: 'Spent on coffee: $',
+      amount: 298.7,
+      timestamp: '2019-03-14T09:10:00Z'
+    },
+    {
+      name: 'Coffee',
+      description: 'Spent on coffee: $',
+      amount: 123,
+      timestamp: '2019-03-15T08:00:00Z'
+    },
+    {
+      name: 'Commute',
+      description: 'Spent on commute: $',
+      amount: 534.7,
+      timestamp: '2019-03-15T09:10:00Z'
+    }
+  ];
+
+  private transactions = new BehaviorSubject(this.INITIAL_TRANSACTIONS);
+
+  readonly transactions$ = this.transactions.asObservable();
+
   getMonth(dateTime) {
     const monthNum = dateTime.split('-')[1];
-    switch(monthNum) {
+    switch (monthNum) {
       case('0'):
         return 'January';
       case('1'):
@@ -38,29 +63,9 @@ export class TransactionService {
       case('11'):
         return 'December';
       default:
-        return 'January'
+        return 'January';
     }
-  };
-
-  INITIAL_TRANSACTIONS: Transaction[] = [
-    {
-      name: 'Coffee',
-      description: 'Spent on coffee: $',
-      amount: 298.7,
-      timestamp: '2019-3-14T09:10:00'
-    },
-    {
-      name: 'Commute',
-      description: 'Spent on commute: $',
-      amount: 534.7,
-      timestamp: '2019-3-15T09:10:00'
-    }
-  ];
-
-
-  private transactions = new BehaviorSubject(this.INITIAL_TRANSACTIONS);
-
-  readonly transactions$ = this.transactions.asObservable();
+  }
 
   fastForward(): void {
     this.transactions.next([...this.transactions.getValue(), ...NEWTRANSACTIONS]);

@@ -12,6 +12,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { GoalsComponent } from './goals/goals.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LearnComponent } from './learn/learn.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SpendingComponent,
     SignInComponent,
     GoalsComponent,
-    HomeComponent
+    HomeComponent,
+    LearnComponent
   ],
   imports: [
     BrowserModule,
