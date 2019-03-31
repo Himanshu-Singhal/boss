@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GoalsService } from '../goals.service';
-import { Goal } from '../goal';
+import { GoalsService } from '../../service/goals.service';
+import { Goal } from '../../model/goal';
 
 @Component({
   selector: 'app-goals',
@@ -14,7 +14,7 @@ export class GoalsComponent implements OnInit {
   getGoalsData(): void {
     this.goals = this.GoalService.getGoalsData();
   }
-  
+
   constructor(private GoalService: GoalsService) { }
 
   ngOnInit() {
