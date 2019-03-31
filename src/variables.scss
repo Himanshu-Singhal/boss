@@ -1,0 +1,16 @@
+$purple: #871faf;
+$purple-gradient: linear-gradient(256deg, #ae38ca, #5e2374);
+
+$grid-unit: 4px;
+
+@function grid($units) {
+    @return $grid-unit * $units;
+}
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+$font-size-base: 14px;

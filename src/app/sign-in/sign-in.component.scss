@@ -1,0 +1,107 @@
+@import "~src/variables.scss";
+
+.sign-in {
+    height: 100%;
+    position: relative;
+    background-image: url("~src/assets/img/signin-bg.png");
+    background-size: cover;
+    background-position: bottom, right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    a {
+        font-size: $font-size-base;
+        text-decoration: none;
+        &, &:focus, &:hover, &:active, &:visited {
+            color: white;
+        }
+    }
+    img.boss-logo {
+        margin-top: grid(16);
+        margin-bottom: 10px;
+    }
+    div.short-underline {
+        width: grid(10);
+        height: 0;
+        border-top: 1px solid white;
+        margin-bottom: grid(4);
+    }
+    div.caption {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: $font-size-base;
+        font-weight: $font-weight-normal;
+        margin-bottom: grid(20);
+    }
+    .auth-tabs {
+        display: flex;
+        justify-content: space-between;
+        width: 220px;
+        margin-bottom: grid(4);
+        .tab-link {
+            .link-text {
+                text-transform: uppercase;
+                margin-bottom: grid(1);
+            }
+            .link-underline {
+                width: 100%;
+                margin-top: grid(1);
+                border-top: 1px solid transparent;
+            }
+            &.active, &:hover {
+                .link-underline {
+                    border-color: $purple;
+                }
+            }
+        }
+    }
+    .form-group {
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: grid(6);
+        .textfield-label {
+            font-size: $font-size-base;
+            font-weight: $font-weight-semi-bold;
+            margin-bottom: grid(1);
+        }
+        input[type="text"], input[type="password"] {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 4px;
+            padding: grid(2) grid(3);
+            color: white;
+            font-size: $font-size-base;
+            margin-bottom: grid(4);
+        }
+        .checkbox-field {
+            input[type="checkbox"] {
+                margin: 0;
+            }
+            .checkbox-label {
+                font-size: $font-size-base;
+                margin-left: grid(1);
+            }
+        }
+    }
+    .long-underline {
+        width: 250px;
+        border-top: 1px solid white;
+        margin-bottom: grid(3);
+    }
+    
+    button.sign-in {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: grid(12);
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-image: $purple-gradient;
+        font-size: $font-size-base;
+        font-weight: $font-weight-semi-bold;
+        text-transform: uppercase;
+    }
+}

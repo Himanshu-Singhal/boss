@@ -1,16 +1,28 @@
 <div class="sign-in">
-  <div>
-    <a href="#">Sign In</a>
-    <a href="#">Sign Up</a>
+  <img src="assets/img/boss-logo.png" class="boss-logo">
+  <div class="short-underline"></div>
+  <div class="caption">Earn like a boss</div>
+  <div class="auth-tabs">
+    <a class="tab-link" routerLink="/sign-in" routerLinkActive="active">
+      <div class="link-text">Sign In</div>
+      <div class="link-underline"></div>
+    </a>
+    <a class="tab-link" href="#">
+      <div class="link-text">Sign Up</div>
+      <div class="link-underline"></div>
+    </a>
   </div>
   <div class="form-group">
-    <label for="email">Email</label>
-    <input [(ngModel)]="email" />
-    <label for="password">Password</label>
+    <label for="email" class="textfield-label">Email</label>
+    <input [(ngModel)]="email" type="text" />
+    <label for="password" class="textfield-label">Password</label>
     <input [(ngModel)]="password" type="password" />
-    <label for="remember-me">Keep me signed in</label>
-    <input [(ngModel)]="rememberMe" type="checkbox" name="remember-me" />
-    <button (click)="signIn()">Sign In</button>
+    <div class="checkbox-field">
+      <input [(ngModel)]="rememberMe" type="checkbox" name="remember-me" />
+      <label for="remember-me" class="checkbox-label">Keep me signed in</label>
+    </div>
   </div>
+  <div class="long-underline"></div>
   <a href="#">Forgot Password?</a>
+  <button (click)="signIn()" class="sign-in">Sign In</button>
 </div>
