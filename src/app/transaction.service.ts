@@ -69,6 +69,11 @@ export class TransactionService {
     }
   }
 
+  getLatestMonth(transactions): number {
+    const sorted = _.orderBy(transactions, 'timestamp', 'desc');
+    return new Date(sorted[0].timestamp).getUTCMonth();
+  }
+
   getDate(timestamp): string {
     const newDate = new Date(Date.parse(timestamp));
     return formatDate(newDate, 'MMMM dd, yyyy', 'en-US');
@@ -81,6 +86,10 @@ export class TransactionService {
 
   getTransactionData(): Observable<Transaction[]> {
     return this.transactions$;
+  }
+
+  getTransactionsByMonth(month, transactions): Transaction[] {
+    return _.filter(transactions, txn => new Date(txn.timestamp).getUTCMonth() === month);
   }
 
   groupTransactions(transactions): { date: any; txns: Transaction[]; }[] {

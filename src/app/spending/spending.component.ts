@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../transaction';
 import { TransactionService } from '../transaction.service';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-spending',
