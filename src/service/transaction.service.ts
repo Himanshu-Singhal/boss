@@ -77,7 +77,7 @@ export class TransactionService {
       name: 'Dine',
       description: 'Spent on dining out: $',
       amount: 54.7,
-      timestamp: '2019-01-15T09:10:00Z'
+      timestamp: '2019-03-09T09:10:00Z'
       }
   ];
 
@@ -117,10 +117,6 @@ export class TransactionService {
     }
   }
 
-  getTxnTypeByMonth(type, month): Transaction[]{
-    return this.getTransactionsByMonth(0, this.INITIAL_TRANSACTIONS);
-  }
-
   getLatestMonth(transactions): number {
     const sorted = _.orderBy(transactions, 'timestamp', 'desc');
     return new Date(sorted[0].timestamp).getUTCMonth();
@@ -142,6 +138,10 @@ export class TransactionService {
 
   getTransactionsByMonth(month, transactions): Transaction[] {
     return _.filter(transactions, txn => new Date(txn.timestamp).getUTCMonth() === month);
+  }
+
+  getMonthTxnsByType(transactions, type, month): Transaction[] {
+    return _.filter(transactions, txn => new Date(txn.timestamp).getUTCMonth() === month && txn.name === type);
   }
 
   groupTransactions(transactions): { date: any; txns: Transaction[]; }[] {

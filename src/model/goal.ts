@@ -1,7 +1,7 @@
 export class Goal {
-    id: string;
+    type: string;
     title: string;
-    description: string;
-    last: number;
+    subtitle: string;
+    state: string;
     progress: number;
 }

@@ -1,96 +1,63 @@
 import { Injectable } from '@angular/core';
+import * as _ from 'lodash';
+import { Transaction } from 'src/model/transaction';
 import { Goal } from '../model/goal';
 import { TransactionService } from './transaction.service';
-import { Transaction } from 'src/model/transaction';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class GoalsService {
 
   constructor( private transactionService: TransactionService ) { }
 
-  transactionData: Transaction[];
-  goals: Array<Goal> = [];
+  goalTypes: Array<string> = ['Coffee', 'Commute', 'Dine'];
 
-  getTransactionData(): void {
-      this.transactionService.getTransactionData()
-      .subscribe(transactions => {
-        this.transactionData = transactions;
+  getGoalsData(transactions): Goal[] {
+    const goals: Array<Goal> = [];
+    const currMonth = this.transactionService.getLatestMonth(transactions);
+
+    _.forEach(this.goalTypes, goalType => {
+      const currTxns = this.transactionService.getMonthTxnsByType(transactions, goalType, currMonth);
+      const prevTxns = this.transactionService.getMonthTxnsByType(transactions, goalType, currMonth - 1);
+      const currTotal = _.map(currTxns, 'amount').reduce((a, b) => a + b, 0);
+      const prevTotal = _.map(prevTxns, 'amount').reduce((a, b) => a + b, 0);
+      const savings = this.getSavings(currMonth, currTotal, prevTotal);
+      const state = 'Accepted';
+
+      goals.push({
+        type: goalType,
+        title: this.getTitle(goalType),
+        subtitle: this.getSubtitle(state, prevTotal, savings),
+        state,
+        progress: this.getProgress()
       });
+
+    });
+    return goals;
+  }
+
+  getTitle(type): string {
+    switch (type) {
+      case 'Coffee': return 'Spend $50 less on coffee this month.'; break;
+      case 'Commute': return 'Walk to work every day.'; break;
+      case 'Dine': return 'Dine out only on the weekends.'; break;
+    }
+  }
+
+  getSubtitle(state, prevTotal, savings): string {
+    if (state === 'Accepted') {
+      return `You have saved $${savings} so far`;
+    }
+    return `Last month you spent $${prevTotal}.`;
+  }
+
+  getSavings(currMonth, currTotal, prevTotal): number {
+    return 200;
   }
 
   getProgress(): number {
     return 40;
-  }
-
-  getTxnTypeByMonth(type, month): Transaction[] {
-    return this.transactionService.getTxnTypeByMonth(type, month);
-  }
-
-  getGoalsData(): Goal[] {
-        this.goals = [];
-        this.getTransactionData();
-        let lastTransactions = this.getTxnTypeByMonth('Coffee', 1);
-        let groupedLastTransactions: Array<Transaction> = [];
-        let currentTransactions = this.getTxnTypeByMonth('Coffee', 2);
-        let groupedCurrentTransactions: Array<Transaction> = [];;
-    
-        lastTransactions.forEach((eachObj) => {
-          if(groupedLastTransactions.find(grp => {return grp.name === eachObj.name})){
-            (groupedLastTransactions.find(grp => {return grp.name === eachObj.name})).amount += eachObj.amount;
-          }
-          else {
-            groupedLastTransactions.push({ name: eachObj.name, description: null, timestamp: null, amount: eachObj.amount});
-          }
-        });
-    
-        currentTransactions.forEach((eachObj) => {
-          if(groupedCurrentTransactions.find(grp => {return grp.name === eachObj.name})){
-            (groupedCurrentTransactions.find(grp => {return grp.name === eachObj.name})).amount += eachObj.amount;
-          }
-          else {
-            groupedCurrentTransactions.push({ name: eachObj.name, description: null, timestamp: null, amount: eachObj.amount});
-          }
-        });
-    
-        groupedLastTransactions.forEach((grp) => {
-           switch(grp.name) {
-            case('Coffee'):
-              this.goals.push(
-                {
-                  id: 'Coffee',
-                  title: 'Spend $50 less on coffee this month.',
-                  description: 'Last month youy spent: ',
-                  last: grp.amount,
-                  progress: 40
-                }
-              );
-              break;
-            case('Commute'):
-              this.goals.push(
-                {
-                  id: 'Commute',
-                  title: 'Walk to work every day.',
-                  description: 'Last month you spent on commute: ',
-                  last: grp.amount,
-                  progress: 20
-                }
-              );
-              break;
-            case('Dine'):
-              this.goals.push(
-                {
-                  id: 'Dine',
-                  title: 'Dine out only on the weekends.',
-                  description: 'You could save up to: ',
-                  last: grp.amount,
-                  progress: 30
-                  }
-              );
-              break;
-          }
-        });
-         return this.goals;
   }
 }

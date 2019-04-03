@@ -9,7 +9,6 @@ import { TransactionService } from '../../service/transaction.service';
 })
 
 export class SpendingComponent implements OnInit {
-  // transactions: Transaction[];
   grouped: { date: string; txns: Transaction[]; }[];
 
   getTransactionData(): void {
