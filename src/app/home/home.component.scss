@@ -1,12 +1,13 @@
+@import "~src/_variables.scss";
+
 .home-page {
     background-color: #d3d3d3;
-    padding: 20px 0;
+    padding: grid(5) 0;
     mat-card {
-        margin: 20px;
+        margin: grid(5);
     }
     mat-card-title {
-        font-size: 14px;
-        font-family: Montserrat;
+        font-size: $font-size-base;
     }
     mat-progress-bar {
         height:14px;
@@ -15,7 +16,7 @@
     mat-card-actions {
         text-align: right;
         button {
-            color: purple;
+            color: $purple;
             font-weight: 400;
             font-size: 16px;
             padding: 10px;

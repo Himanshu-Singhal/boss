@@ -1,11 +1,19 @@
+@import "~src/_variables.scss";
+
 .navbar {
     position: fixed;
+    z-index: 99;
     bottom: 0;
     width: 100%;
-    background-color: #eeeeee;
+    height: $navbar-height;
+    box-shadow: 0 -1px 5px 0 rgba(0, 0, 0, 0.24);
+    background-color: white;
     display: flex;
     div.nav-link {
         width: 25%;
         text-align: center;
+        svg {
+            color: black;
+        }
     }
 }

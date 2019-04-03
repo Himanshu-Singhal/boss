@@ -1,5 +1,7 @@
-.spending {
-    background-color: purple;
+@import "~src/_variables.scss";
+
+.spending-page {
+    background-color: $purple;
     .title {
         font-size: 16px;
         font-weight: bold;
@@ -17,7 +19,7 @@
     }
     .header {
         background-color: #d3d3d3;
-        padding: 8px;
+        padding: grid(2);
         font-family: Heebo;
         font-size: 12px;
         font-weight: 500;
