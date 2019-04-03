@@ -7,7 +7,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HeaderComponent } from './header/header.component';
 import { SpendingComponent } from './spending/spending.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +17,6 @@ import { LearnComponent } from './learn/learn.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    HeaderComponent,
     SpendingComponent,
     SignInComponent,
     HomeComponent,

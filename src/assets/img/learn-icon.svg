@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>baseline-school-24px</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Progress-towards-goals-Copy" transform="translate(-215.000000, -804.000000)">
+            <g id="Group-9" transform="translate(0.000000, 793.000000)">
+                <g id="baseline-school-24px" transform="translate(214.000000, 8.000000)">
+                    <polygon id="Shape" points="0 0 26 0 26 26 0 26"></polygon>
+                    <g id="learn-icon" transform="translate(1.000000, 3.000000)" fill="#8F969F" fill-rule="nonzero">
+                        <path d="M4.41666667,11.2783333 L4.41666667,15.6116667 L12,19.75 L19.5833333,15.6116667 L19.5833333,11.2783333 L12,15.4166667 L4.41666667,11.2783333 Z M12,0.25 L0.0833333333,6.75 L12,13.25 L21.75,7.93083333 L21.75,15.4166667 L23.9166667,15.4166667 L23.9166667,6.75 L12,0.25 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

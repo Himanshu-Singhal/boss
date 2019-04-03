@@ -1,15 +1,16 @@
-@import "~src/variables.scss";
+@import "~src/_variables.scss";
 
-.sign-in {
-    height: 100%;
-    position: relative;
+.signin-page {
+    min-height: 100%;
     background-image: url("~src/assets/img/signin-bg.png");
     background-size: cover;
-    background-position: bottom, right;
+    background-position: bottom, center;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
+    padding-bottom: grid(12);
+    box-sizing: border-box;
     a {
         font-size: $font-size-base;
         text-decoration: none;
@@ -19,12 +20,6 @@
     }
     img.boss-logo {
         margin-top: grid(16);
-        margin-bottom: 10px;
-    }
-    div.short-underline {
-        width: grid(10);
-        height: 0;
-        border-top: 1px solid white;
         margin-bottom: grid(4);
     }
     div.caption {
@@ -92,7 +87,8 @@
     }
     
     button.sign-in {
-        position: absolute;
+        position: fixed;
+        z-index: 99;
         bottom: 0;
         left: 0;
         width: 100%;
@@ -103,5 +99,6 @@
         font-size: $font-size-base;
         font-weight: $font-weight-semi-bold;
         text-transform: uppercase;
+        color: white;
     }
 }
