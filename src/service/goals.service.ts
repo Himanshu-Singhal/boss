@@ -18,6 +18,7 @@ export class GoalsService {
     const goals: Array<Goal> = [];
     const currDate = this.transactionService.getLatestDate(transactions);
     const currMonth = currDate.getUTCMonth();
+    let state = 'Accepted';
 
     _.forEach(this.goalTypes, goalType => {
       const currTxns = this.transactionService.getMonthTxnsByType(transactions, goalType, currMonth);
@@ -25,7 +26,11 @@ export class GoalsService {
       const currTotal = _.map(currTxns, 'amount').reduce((a, b) => a + b, 0);
       const prevTotal = _.map(prevTxns, 'amount').reduce((a, b) => a + b, 0);
       const savings = this.getSavings(currDate, currTotal, prevTotal);
-      const state = 'Accepted';
+
+      // Adding this to show Suggested Goal
+      if (goalType === 'Dine') {
+        state = 'Suggested';
+      }
 
       goals.push({
         type: goalType,

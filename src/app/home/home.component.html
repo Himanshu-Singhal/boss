@@ -17,10 +17,14 @@
       <mat-card-title>{{goal.title}}</mat-card-title>
       <mat-card-subtitle>{{goal.subtitle}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-progress-bar mode="determinate" value="{{goal.progress}}"></mat-progress-bar>
-    <mat-card-actions>
+    <mat-progress-bar *ngIf="goal.state !== 'Suggested'" mode="determinate" value="{{goal.progress}}"></mat-progress-bar>
+    <mat-card-actions *ngIf="goal.state === 'Accepted'">
+      <button mat-button>CANCEL</button>
+      <button mat-button>SHOW ME TIPS</button>
+    </mat-card-actions>
+    <mat-card-actions *ngIf="goal.state === 'Suggested'">
       <button mat-button>DISMISS</button>
-      <button mat-button>ACCEPT GOAL</button>
+      <button mat-button>ACCEPT CHALLENGE</button>
     </mat-card-actions>
   </mat-card>
   

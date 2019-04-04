@@ -77,7 +77,7 @@ export class TransactionService {
       name: 'Dine',
       description: 'Spent on dining out: $',
       amount: 54.7,
-      timestamp: '2019-03-09T09:10:00Z'
+      timestamp: '2019-02-09T09:10:00Z'
       }
   ];
 
