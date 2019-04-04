@@ -23,12 +23,12 @@ export class TransactionService {
       name: 'Coffee',
       description: 'TD UNLIMITED CHEQUING ACCT',
       amount: 123,
-      timestamp: '2019-03-15T08:00:00Z'
+      timestamp: '2019-03-27T08:00:00Z'
     },
     {
       name: 'Commute',
       description: 'TD SAVINGS ACCT',
-      amount: 534.7,
+      amount: 34.7,
       timestamp: '2019-03-15T09:10:00Z'
     },
     {
@@ -40,14 +40,14 @@ export class TransactionService {
     {
       name: 'Coffee',
       description: 'TD UNLIMITED CHEQUING ACCT',
-      amount: 38.7,
+      amount: 538.7,
       timestamp: '2019-02-25T09:10:00Z'
     },
     {
       name: 'Commute',
       description: 'TD UNLIMITED CHEQUING ACCT',
       amount: 93.7,
-      timestamp: '2019-01-19T09:10:00Z'
+      timestamp: '2019-02-19T09:10:00Z'
     },
     {
       name: 'Coffee',
@@ -85,44 +85,12 @@ export class TransactionService {
 
   readonly transactions$ = this.transactions.asObservable();
 
-  getMonth(dateTime) {
-    const monthNum = dateTime.split('-')[1];
-    switch (monthNum) {
-      case('0'):
-        return 'January';
-      case('1'):
-        return 'February';
-      case('2'):
-        return 'March';
-      case('3'):
-        return 'April';
-      case('4'):
-        return 'May';
-      case('5'):
-        return 'June';
-      case('6'):
-        return 'July';
-      case('7'):
-        return 'August';
-      case('8'):
-        return 'September';
-      case('9'):
-        return 'October';
-      case('10'):
-        return 'November';
-      case('11'):
-        return 'December';
-      default:
-        return 'January';
-    }
-  }
-
-  getLatestMonth(transactions): number {
+  getLatestDate(transactions): Date {
     const sorted = _.orderBy(transactions, 'timestamp', 'desc');
-    return new Date(sorted[0].timestamp).getUTCMonth();
+    return new Date(sorted[0].timestamp);
   }
 
-  getDate(timestamp): string {
+  getDateString(timestamp): string {
     const newDate = new Date(Date.parse(timestamp));
     return formatDate(newDate, 'MMMM dd, yyyy', 'en-US');
   }
@@ -145,7 +113,7 @@ export class TransactionService {
   }
 
   groupTransactions(transactions): { date: any; txns: Transaction[]; }[] {
-    const txns = _(transactions).orderBy('timestamp', 'desc').groupBy(txn => this.getDate(txn.timestamp))
+    const txns = _(transactions).orderBy('timestamp', 'desc').groupBy(txn => this.getDateString(txn.timestamp))
                 .map((value, key) => ({date: formatDate(key, 'MMMM dd, yyyy', 'en-US'), txns: value}))
                 .value();
     return txns;
