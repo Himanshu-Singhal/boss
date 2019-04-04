@@ -2,12 +2,18 @@
   <div class="title">WHAT YOU'VE BOUGHT</div>
   <mat-card>
     <div class="spending-div" *ngFor="let entry of grouped">
-      <div class="header" [ngClass]="{'header-first' : '$parent == 0'}">{{entry.date}}</div>
-      <div *ngFor="let txn of entry.txns">
-        <div style="margin: 16px;">
-          <div class="name">{{txn.name}}</div>
-          <div class="description">{{txn.description}}{{txn.amount}}</div>
+      <div class="header" [ngClass]="{'header-first' : '$parent == 0'}">{{entry.date | uppercase}}</div>
+      <div *ngFor="let txn of entry.txns; last as isLast">
+        <div class="display-flex">
+          <div style="margin: 16px;">
+            <div class="name">{{txn.name | uppercase}}</div>
+            <div class="description">{{txn.description | uppercase}}</div>
+          </div>
+          <div class="amount">
+            <div>{{txn.amount | currency}}</div>
+          </div>
         </div>
+        <div *ngIf="!isLast" class="hline-bottom"></div>
       </div>
   </div>
   </mat-card>

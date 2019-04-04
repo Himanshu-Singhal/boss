@@ -74,3 +74,12 @@ button {
 .navbar-margin {
 	margin-bottom: $navbar-height;
 }
+
+.display-flex {
+	display: flex;
+}
+
+.hline-bottom {
+	border: 0.5px solid #d3d3d3;
+	margin: 0 16px;
+}

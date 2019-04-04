@@ -15,55 +15,55 @@ export class TransactionService {
   INITIAL_TRANSACTIONS: Transaction[] = [
     {
       name: 'Coffee',
-      description: 'Spent on coffee: $',
+      description: 'TD UNLIMITED CHEQUING ACCT',
       amount: 298.7,
       timestamp: '2019-03-14T09:10:00Z'
     },
     {
       name: 'Coffee',
-      description: 'Spent on coffee: $',
+      description: 'TD UNLIMITED CHEQUING ACCT',
       amount: 123,
       timestamp: '2019-03-15T08:00:00Z'
     },
     {
       name: 'Commute',
-      description: 'Spent on commute: $',
+      description: 'TD SAVINGS ACCT',
       amount: 534.7,
       timestamp: '2019-03-15T09:10:00Z'
     },
     {
       name: 'Coffee',
-      description: 'Spent on coffee: $',
+      description: 'TD CHEQUING ACCT',
       amount: 28.7,
       timestamp: '2019-01-14T09:10:00Z'
     },
     {
       name: 'Coffee',
-      description: 'Spent on coffee: $',
+      description: 'TD UNLIMITED CHEQUING ACCT',
       amount: 38.7,
       timestamp: '2019-02-25T09:10:00Z'
     },
     {
       name: 'Commute',
-      description: 'Spent on coffee: $',
+      description: 'TD UNLIMITED CHEQUING ACCT',
       amount: 93.7,
       timestamp: '2019-01-19T09:10:00Z'
     },
     {
       name: 'Coffee',
-      description: 'Spent on coffee: $',
+      description: 'TD SAVINGS ACCT',
       amount: 82.7,
       timestamp: '2019-01-14T09:10:00Z'
     },
     {
       name: 'Coffee',
-      description: 'Spent on coffee: $',
+      description: 'TD UNLIMITED CHEQUING ACCT',
       amount: 7.7,
       timestamp: '2019-02-14T09:10:00Z'
     },
     {
       name: 'Coffee',
-      description: 'Spent on coffee: $',
+      description: 'TD UNLIMITED CHEQUING ACCT',
       amount: 17.7,
       timestamp: '2019-01-04T09:10:00Z'
     },
