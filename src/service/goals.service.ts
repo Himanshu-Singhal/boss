@@ -83,7 +83,8 @@ export class GoalsService {
 
     // Multiply current total by 100 (for percentage)
     // Then divide it by whatever the prevDaily was multiplied by the latest transaction day
+    // Finally, subtract from 100 to get saving progress
     // If no prevDaily, default percentage to zero
-    return prevDaily ? (currTotal * 100) / (prevDaily * currDate.getDate()) : 0;
+    return prevDaily ? 100 - ((currTotal * 100) / (prevDaily * currDate.getDate())) : 0;
   }
 }
